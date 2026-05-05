@@ -1,10 +1,4 @@
 let messages=[]
-let message={
-    text:'text',
-    sender:'sender',
-    recipient:'recipient',
-    timestamp:'timestamp'
-}
 
 const sendBtn = document.getElementById('sendBtn')
 const messageInput = document.getElementById('messageInput')
@@ -30,8 +24,15 @@ sendBtn.addEventListener('click',()=>{
     const newMessage = new Message(text)
     messages.push(newMessage)
     messageInput.value = ''
-    let messageToAdd = document.createElement('div')
-    messageToAdd.classList.add('message')
-    messageToAdd.textContent = newMessage.text
-    chat.appendChild(messageToAdd)
+    renderMessages()
 })
+
+function renderMessages(){
+    chat.innerHTML = ''
+    messages.forEach(msg=>{
+        let messageToAdd = document.createElement('div')
+        messageToAdd.classList.add('message')
+        messageToAdd.textContent = msg.text
+        chat.appendChild(messageToAdd)
+    })
+}
