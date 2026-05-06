@@ -62,3 +62,12 @@ function renderMessages(){
 console.log('chat:', chat);
 console.log('sendBtn:', sendBtn);
 
+
+function simulateBotResponse(){
+    let botMessage = new Message('Это ответ бота на ваше сообщение: ' + messages[messages.length - 1].text)
+    botMessage.sender = 'bot'
+    botMessage.recipient = 'user'
+    messages.push(botMessage)
+    renderMessages()    
+}
+
