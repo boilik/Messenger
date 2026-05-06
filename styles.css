@@ -1,0 +1,47 @@
+body{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-color: #10131a;
+}
+
+#chat{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#send{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
+
+#messageInput{
+    flex: 1;
+    padding: 10px;
+}
+
+#sendBtn{
+    padding: 10px 20px;
+}
+
+.message{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 60%;
+    background-color: aliceblue;
+}
+
+.user-message{
+    align-self: flex-end;
+    background-color: #4a90e2;
+    color: white;
+}
+
+.bot-message{
+    align-self: flex-start;
+    background-color: #3b3838;
+    color: aliceblue;
+}

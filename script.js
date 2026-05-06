@@ -33,6 +33,7 @@ sendBtn.addEventListener('click',()=>{
     messages.push(newMessage)
     messageInput.value = ''
     renderMessages()
+    setTimeout(simulateBotResponse, 2000)
 })
 
 function scroll(){
@@ -60,3 +61,4 @@ function renderMessages(){
 
 console.log('chat:', chat);
 console.log('sendBtn:', sendBtn);
+
