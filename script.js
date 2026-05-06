@@ -35,6 +35,11 @@ sendBtn.addEventListener('click',()=>{
     renderMessages()
 })
 
+function scroll(){
+    const height=chat.scrollHeight
+    chat.scrollTop = height
+}
+
 function renderMessages(){
     console.log('Рендерим сообщения, всего:', messages.length);
     chat.innerHTML = ''
@@ -42,9 +47,15 @@ function renderMessages(){
         let messageToAdd = document.createElement('div')
         messageToAdd.classList.add('message')
         messageToAdd.textContent = msg.text
+        if (msg.sender === 'user') {
+            messageToAdd.classList.add('user-message')
+        } else {
+            messageToAdd.classList.add('bot-message')
+        }
         chat.appendChild(messageToAdd)
         console.log('Добавлено сообщение:', msg.text);
     })
+    scroll()
 }
 
 console.log('chat:', chat);
