@@ -1,4 +1,4 @@
-let messages=[]
+let messages=JSON.parse(localStorage.getItem("messageS")) || []
 
 const sendBtn = document.getElementById('sendBtn')
 const messageInput = document.getElementById('messageInput')
@@ -57,6 +57,7 @@ function renderMessages(){
         console.log('Добавлено сообщение:', msg.text);
     })
     scroll()
+    saveMessages()
 }
 
 console.log('chat:', chat);
@@ -71,3 +72,9 @@ function simulateBotResponse(){
     renderMessages()    
 }
 
+
+function saveMessages(){
+    localStorage.setItem("messageS",JSON.stringify(messages))
+}
+
+renderMessages()
